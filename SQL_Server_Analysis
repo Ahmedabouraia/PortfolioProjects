@@ -1,0 +1,80 @@
+You can perform various types of analysis on the Library Books table in SQL Server using SQL queries. Here are some examples of common analyses you can do along with explanations and sample SQL code: 
+
+Count the Number of Books in the Library: This analysis helps you determine the total number of books available in the library. 
+
+SQL code 
+
+SELECT COUNT(*) AS TotalBooks 
+FROM [MAC_SMS].[jlibrary].[Books]; 
+ 
+
+List Books by Author: This analysis lists books by their authors, allowing you to see how many books each author has in the library. 
+
+SQL code 
+
+SELECT Author, COUNT(*) AS TotalBooks 
+FROM [MAC_SMS].[jlibrary].[Books] 
+GROUP BY Author 
+ORDER BY TotalBooks DESC; 
+ 
+
+Calculate the Average Book Price: This analysis helps you find the average price of books in the library. 
+
+SQL code 
+
+SELECT AVG(Item_price) AS AveragePrice 
+FROM [MAC_SMS].[jlibrary].[Books]; 
+ 
+
+Identify the Most Common Publishers: This analysis identifies the publishers with the highest number of books in the library. 
+
+SQL code 
+
+SELECT Publisher, COUNT(*) AS TotalBooks 
+FROM [MAC_SMS].[jlibrary].[Books] 
+GROUP BY Publisher 
+ORDER BY TotalBooks DESC; 
+ 
+
+Find Books by Subject: This analysis allows you to find books based on their subject. 
+
+SQL code 
+
+SELECT Book_Title, Subject 
+FROM [MAC_SMS].[jlibrary].[Books] 
+WHERE Subject = 'YourSubject'; 
+ 
+
+Calculate the Total Cost of Books by Publisher: This analysis helps you determine the total cost of books from each publisher. 
+
+SQL code 
+
+SELECT Publisher, SUM(Item_price) AS TotalCost 
+FROM [MAC_SMS].[jlibrary].[Books] 
+GROUP BY Publisher 
+ORDER BY TotalCost DESC; 
+ 
+
+Identify the Most Expensive Books: This analysis lists the most expensive books in the library. 
+
+SQL code 
+
+SELECT Book_Title, Item_price 
+FROM [MAC_SMS].[jlibrary].[Books] 
+ORDER BY Item_price DESC 
+LIMIT 10; 
+ 
+
+Group Books by Room Number: This analysis groups books by their room numbers to see how they are distributed across different rooms. 
+
+SQL code 
+
+SELECT Room_No, COUNT(*) AS TotalBooks 
+FROM [MAC_SMS].[jlibrary].[Books] 
+GROUP BY Room_No 
+ORDER BY Room_No; 
+ 
+
+These are just a few examples of the types of analysis you can perform on your library books table using SQL Server. Depending on your specific requirements and the data in your table, you can create more complex queries to gain deeper insights into your library's collection. 
+
+ 
